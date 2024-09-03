@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Google Search Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .content {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #007BFF;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .link-list {
+            margin-top: 20px;
+            text-align: left;
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            border-top: 1px solid #ddd;
+        }
+        .link-list a {
+            display: block;
+            margin: 5px 0;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .link-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Random Google Search Generator</h1>
+        <p>Click the button below to generate random Google search URLs.</p>
+        <button class="btn" onclick="generateRandomSearches()">Generate Random Searches</button>
+        <div id="linkContainer" class="link-list"></div>
+    </div>
+
+    <script>
+        function getRandomSearchTerm() {
+    const terms = [
+        'latest tech trends',
+        'fox studios scratch',
+        'best pizza recipes',
+        'travel tips for Japan',
+        'how to start a blog',
+        'famous historical events',
+        'DIY home improvement ideas',
+        'fitness routines for beginners',
+        'top 10 travel destinations',
+        'meditation techniques for stress relief',
+        'reviews of the latest smartphones',
+        'popular science fiction books',
+        'healthy meal prep ideas',
+        'best hiking trails in the US',
+        'innovations in renewable energy',
+        'tips for learning a new language',
+        'how to improve public speaking',
+        'gardening tips for small spaces',
+        'most interesting facts about space',
+        'budgeting tips for students',
+        'classic movies to watch',
+        'best practices for remote work',
+        'unique gift ideas for anniversaries',
+        'exploring different cuisines',
+        'how to start an online business',
+        'important cybersecurity measures',
+        'best ways to stay motivated',
+        'pet care tips for new owners',
+        'home organization hacks',
+        'historical figures who changed the world',
+        'popular online courses for professionals',
+        'latest trends in fashion',
+        'how to make homemade ice cream',
+        'best practices for digital marketing',
+        'amazing architectural wonders',
+        'science experiments for kids',
+        'tips for a successful job interview',
+        'how to improve your sleep quality',
+        'travel photography tips',
+        'how to create a workout plan',
+        'fun family activities',
+        'best strategies for studying',
+        'how to choose a pet',
+        'interesting podcasts to listen to',
+        'guides for sustainable living',
+        'essential cooking techniques',
+        'ways to enhance creativity',
+        'how to get started with yoga',
+        'understanding cryptocurrency',
+        'tips for maintaining a healthy diet',
+        'most scenic road trips',
+        'fun family road trip ideas',
+        'how to code',
+        'how to make a discord bot',
+        'air',
+        'how to drink water',
+        'never gonna give you up lyrics',
+        'aiden jamesyt',
+        'discord',
+        'discord bots',
+        'github',
+        'roblox',
+        'foxstudiosscratch',
+        'twitter',
+        'x'
+    ];
+    return terms[Math.floor(Math.random() * terms.length)];
+}
+
+
+        function generateRandomSearches() {
+            const linkContainer = document.getElementById('linkContainer');
+            const numberOfLinks = Math.floor(Math.random() * 5) + 1;
+
+            // Clear previous links
+            linkContainer.innerHTML = '';
+
+            for (let i = 0; i < numberOfLinks; i++) {
+                const searchTerm = getRandomSearchTerm();
+                const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`;
+
+                const linkElement = document.createElement('a');
+                linkElement.href = searchUrl;
+                linkElement.textContent = searchUrl;
+                linkElement.target = '_blank'; // Opens link in a new tab
+
+                linkContainer.appendChild(linkElement);
+            }
+        }
+    </script>
+</body>
+</html>
